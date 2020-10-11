@@ -110,7 +110,7 @@ $(function () {
   $('.form-reg').on('submit', function (e) {
 
     e.preventDefault()
-    $.post('http://ajax.frontend.itheima.net/api/reguser', { username: $('.reg-box [name=username]').val(), password: $('.reg-box [name=password]').val() }, function (res) {
+    $.post('/api/reguser', { username: $('.reg-box [name=username]').val(), password: $('.reg-box [name=password]').val() }, function (res) {
 
       if (res.status !== 0) {
 
@@ -128,7 +128,7 @@ $(function () {
 
        $.ajax({
          
-         url:'http://ajax.frontend.itheima.net/api/login',
+         url:'/api/login',
          method:'POST',
          data:$(this).serialize(), 
          success:function(res){
@@ -137,13 +137,11 @@ $(function () {
             
              layer.msg('登录OK')
              localStorage.setItem('token',res.token)
-             location.href='../../index.html'
+             location.href='/index.html'
            }
           
 console.log($(this).serialize());
            layer.msg('失败登录OK')
-           
-           
 
          }
 
